@@ -1,9 +1,11 @@
 import { useState, useRef, useEffect } from 'react';
 import { FaAngleDown } from 'react-icons/fa6';
 import styles from './Dropdown.module.scss';
+import type { Category } from 'src/types/Category';
+import type { Author } from 'src/types/Author';
 
 interface DropdownProps {
-    options: string[];
+    options: Category[] | Author[];
     placeholder?: string;
 }
 
@@ -58,11 +60,11 @@ const Dropdown = ({ options, placeholder = "Category" }: DropdownProps) => {
                     <ul className={styles.menu}>
                         {options.map(option => (
                             <li
-                                key={option}
+                                key={option.id}
                                 className={styles.option}
-                                onClick={() => handleSelect(option)}
+                                onClick={() => handleSelect(option.name)}
                             >
-                                {option}
+                                {option.name}
                             </li>
                         ))}
                     </ul>
