@@ -1,0 +1,12 @@
+@use '../../styles/variables.scss' as *;
+
+.header {
+    padding: 1rem;
+
+    border: 1px solid $neutrals-extra-light;
+    
+    &Logo {
+        width: 9.375rem;
+    }
+
+}
