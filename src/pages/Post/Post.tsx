@@ -49,7 +49,7 @@ const PostPage = () => {
                 <p className="small">{post.content}</p>
 
                 <div className={styles.latestArticles}>
-                    <h3 className={styles.lastesArticlesTitle}>Last articles</h3>
+                    <h3 className={styles.latestArticlesTitle}>Last articles</h3>
                     <div className={styles.latestArticlesPosts}>
                         {latestPosts
                             .filter(latestPost => latestPost.id !== post.id)
