@@ -6,13 +6,13 @@ import type { Category } from 'src/types/Category';
 import { getPosts } from '../../services/post';
 import { getCategories } from '../../services/category';
 import { getAuthors } from '../../services/author';
+import { usePosts } from '../../context/postContext';
 
 const Home = () => {
     const [posts, setPosts] = useState<Post[]>([]);
     const [categories, setCategories] = useState<Category[]>([]);
     const [authors, setAuthors] = useState<Category[]>([]);
-
-
+    const { setContextPosts } = usePosts();
 
     useEffect(() => {
         const fetchData = async () => {
@@ -23,6 +23,7 @@ const Home = () => {
                     getAuthors(),
                 ]);
                 setPosts(postsData);
+                setContextPosts(postsData)
                 setCategories(categoriesData);
                 setAuthors(authorsData);
             } catch (error) {
@@ -31,9 +32,7 @@ const Home = () => {
         };
 
         fetchData();
-    }, []);
-
-
+    }, [setContextPosts]);
 
     return (
         <>
