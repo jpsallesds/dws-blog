@@ -1,7 +1,7 @@
 @use '../../styles/variables.scss' as *;
 
 .button {
-    padding: 0.75rem;
+    padding: 0.5rem 0.75rem;
     border-radius: 1rem;
     display: inline-flex;
     align-items: center;
@@ -16,7 +16,6 @@
 .primary {
     background-color: $secondary-medium;
     color: $neutrals-lightest;
-    font-size: 0.75rem;
 
     &:hover {
         background-color: $secondary-dark;
