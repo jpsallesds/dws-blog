@@ -6,7 +6,7 @@ import type { Category } from 'src/types/Category';
 import { getPosts } from '../../services/post';
 import { getCategories } from '../../services/category';
 import { getAuthors } from '../../services/author';
-import { usePosts } from '../../context/postContext';
+import { usePosts } from '../../context/PostContext';
 
 const Home = () => {
     const [posts, setPosts] = useState<Post[]>([]);

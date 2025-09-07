@@ -6,7 +6,7 @@ import type { Post } from "src/types/Post";
 import { FaArrowLeft } from "react-icons/fa6";
 import styles from './Post.module.scss'
 import { formatDate } from "../../utils/formatDate";
-import { usePosts } from "../../context/postContext";
+import { usePosts } from "../../context/PostContext";
 
 const PostPage = () => {
     const { id } = useParams<{ id: string }>();
