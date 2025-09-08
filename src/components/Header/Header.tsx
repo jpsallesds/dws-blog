@@ -7,15 +7,13 @@ interface HeaderProps {
     categories?: Category[];
 }
 
-const Header = ({categories}: HeaderProps) => {
+const Header = ({ categories }: HeaderProps) => {
     const [searchOpen, setSearchOpen] = useState(false);
 
     return (
         <header className={styles.header}>
-            <div className={styles.headerContent}>
-                <img className={`${styles.headerLogo} ${searchOpen ? styles.headerLogoHidden : ''} `} src="/Dentsu_logo.svg.png" alt="Logo" />
-                <SearchBar options={categories} setSearchOpen={setSearchOpen} />
-            </div>
+            <img className={`${styles.headerLogo} ${searchOpen ? styles.headerLogoHidden : ''} `} src="/Dentsu_logo.svg.png" alt="Logo" />
+            <SearchBar options={categories} setSearchOpen={setSearchOpen} />
         </header>
     );
 };
