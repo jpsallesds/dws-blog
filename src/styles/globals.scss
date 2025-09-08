@@ -2,7 +2,8 @@
 @use './reset';
 
 body {
-  font-family: 'Open Sans', sans-serif;
+    font-family: 'Open Sans', sans-serif;
+    background-color: $neutrals-lightest;
 }
 
 .h1 {
@@ -10,11 +11,13 @@ body {
     line-height: 130%;
     font-weight: 700;
 }
+
 .h2 {
     font-size: 2.25rem;
     line-height: 130%;
     font-weight: 700;
 }
+
 .h3 {
     font-size: 1.25rem;
     line-height: 130%;
@@ -37,4 +40,11 @@ body {
     font-size: 0.875rem;
     line-height: 150%;
     font-weight: 400;
+}
+
+.caption {
+    font-size: 0.75rem;
+    line-height: 130%;
+    font-weight: 400;
+    color: $neutrals-dark;
 }

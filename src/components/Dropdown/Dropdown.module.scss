@@ -1,14 +1,12 @@
 @use '../../styles/variables.scss' as *;
 
 .dropdown {
-  width: 19.625rem;
-  height: 15.25rem;
+  position: relative;
 }
 
 .toggle {
   height: 2rem;
-  min-width: 6.875rem;
-  border-radius: 2.625rem;
+  border-radius: 2.625rem;            
   padding: 0.75rem 0.75rem 0.75rem 1rem;
   color: $secondary-medium;
   border: 1px solid $secondary-medium;
@@ -19,6 +17,9 @@
   display: flex;
   align-items: center;
   gap: 0.25rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
   font-weight: bold;
     &:hover {
         background-color: rgba($secondary-medium, 0.05);
@@ -35,6 +36,7 @@
 }
 
 .menuContainer {
+  position: absolute;
   width: 19.625rem;
   margin-top: 1rem;
   max-height: 12.75rem;

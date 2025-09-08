@@ -1,0 +1,26 @@
+@use '../../styles/variables.scss' as *;
+
+.header {
+    padding: 1rem;
+    border: 1px solid $neutrals-extra-light;
+    height: 4.625rem; 
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    &Logo {
+        width: 8rem;
+        height: 2rem;
+    }
+    
+    &LogoHidden {
+        display: none;
+    }
+}
+
+@media (min-width: 1024px) {
+    .header {
+        padding: 0 5rem;        
+    }
+
+}

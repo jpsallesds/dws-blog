@@ -1,0 +1,25 @@
+@use '../../styles/variables.scss' as *;
+
+.sortButton {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.86rem;
+    color: $neutrals-extra-dark;
+    border-radius: 2.625rem;
+    padding: 0.5rem;
+
+    &:hover {
+        background-color: $accent-medium;
+        color: $neutrals-extra-light;
+
+        .icon {
+            color: $neutrals-extra-light;
+        }
+    }
+}
+
+.icon {
+    rotate: 90deg;
+    color: $accent-medium; 
+}
