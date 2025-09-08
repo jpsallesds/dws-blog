@@ -1,19 +1,11 @@
 @use '../../styles/variables.scss' as *;
 
 
-.container {
-    display: flex;
-    justify-content: center;
-    gap: 1rem;
-    padding: 1rem;
-}
-
 .filter {
     display: flex;
     gap: 0.5rem;
-    flex-wrap: wrap;
-    justify-content: flex-end;
-    margin-bottom: 1rem;
+    justify-content: space-between;
+    padding: 1rem;
 }
 
 .desktopFilter {
