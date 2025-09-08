@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { Dropdown, Header, PostCard } from '@components';
+import { Dropdown, Header, Loading, PostCard, SortButton } from '@components';
 import styles from './Home.module.scss';
 import type { Post } from 'src/types/Post';
 import type { Category } from 'src/types/Category';
@@ -12,11 +12,13 @@ const Home = () => {
     const [posts, setPosts] = useState<Post[]>([]);
     const [categories, setCategories] = useState<Category[]>([]);
     const [authors, setAuthors] = useState<Category[]>([]);
+    const [isLoading, setIsLoading] = useState<boolean>(false);
     const { setContextPosts } = usePosts();
 
     useEffect(() => {
         const fetchData = async () => {
             try {
+                setIsLoading(true);
                 const [postsData, categoriesData, authorsData] = await Promise.all([
                     getPosts(),
                     getCategories(),
@@ -28,11 +30,15 @@ const Home = () => {
                 setAuthors(authorsData);
             } catch (error) {
                 console.error(error);
+            } finally {
+                setIsLoading(false)
             }
         };
 
         fetchData();
     }, [setContextPosts]);
+
+    
 
     return (
         <>
@@ -41,13 +47,14 @@ const Home = () => {
                 <div className={styles.filters}>
                     <Dropdown options={categories} placeholder='Category' />
                     <Dropdown options={authors} placeholder='Author' />
-                    <h3>oaudaoidi</h3>
+                    <SortButton />  {/*this is not working because all the posts have the exactly same createdAt date so i wont be able to test the logic*/}
                 </div>
-                <div className={styles.posts}>
+                {isLoading ? <Loading/> : <div className={styles.posts}>
                     {posts.map(post => (
                         <PostCard key={post.id} post={post} />
                     ))}
                 </div>
+                }
             </div>
         </>
     );
