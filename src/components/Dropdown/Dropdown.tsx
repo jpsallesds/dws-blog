@@ -7,18 +7,18 @@ import type { Author } from 'src/types/Author';
 interface DropdownProps {
     options: Category[] | Author[];
     placeholder?: string;
+    selected: string[];
+    setSelected: React.Dispatch<React.SetStateAction<string[]>>;
 }
 
-const Dropdown = ({ options, placeholder = "Category" }: DropdownProps) => {
+const Dropdown = ({ options, placeholder = "Category", selected, setSelected }: DropdownProps) => {
     const [isOpen, setIsOpen] = useState(false);
-    const [selected, setSelected] = useState<string[]>([]);
     const dropdownRef = useRef<HTMLDivElement>(null);
 
     const handleSelect = (option: string) => {
         setSelected(prev => {
             const exists = prev.includes(option);
-            const newSelected = exists ? prev.filter(item => item !== option) : [...prev, option];
-            return newSelected;
+            return exists ? prev.filter(item => item !== option) : [...prev, option];
         });
     };
 
@@ -28,22 +28,19 @@ const Dropdown = ({ options, placeholder = "Category" }: DropdownProps) => {
     };
 
     useEffect(() => {
-  const handleClickOutside = (e: PointerEvent) => {
-    if (dropdownRef.current && !dropdownRef.current.contains(e.target as Node)) {
-      setIsOpen(false);
-    }
-  };
-
-  document.addEventListener("pointerdown", handleClickOutside);
-  return () => document.removeEventListener("pointerdown", handleClickOutside);
-}, []);
-
+        const handleClickOutside = (e: PointerEvent) => {
+            if (dropdownRef.current && !dropdownRef.current.contains(e.target as Node)) {
+                setIsOpen(false);
+            }
+        };
+        document.addEventListener("pointerdown", handleClickOutside);
+        return () => document.removeEventListener("pointerdown", handleClickOutside);
+    }, []);
 
     return (
         <div className={styles.dropdown} ref={dropdownRef}>
             <button type="button" className={styles.toggle} onClick={() => setIsOpen(!isOpen)}>
                 {selected.length > 0 ? selected.join(', ') : placeholder}
-
                 {selected.length > 0 ? (
                     <span className={styles.icon} onClick={handleReset}>
                         ✕
@@ -54,7 +51,6 @@ const Dropdown = ({ options, placeholder = "Category" }: DropdownProps) => {
                     </span>
                 )}
             </button>
-
             {isOpen && (
                 <div className={styles.menuContainer}>
                     <ul className={styles.menu}>
@@ -72,6 +68,6 @@ const Dropdown = ({ options, placeholder = "Category" }: DropdownProps) => {
             )}
         </div>
     );
-}
+};
 
 export default Dropdown;
