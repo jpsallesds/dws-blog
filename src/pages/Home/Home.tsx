@@ -51,7 +51,7 @@ const Home = () => {
 
     return (
         <>
-            <Header />
+            <Header categories={categories} />
             <div className={styles.container}>
                 <div className={styles.filters}>
                     <Dropdown
@@ -69,10 +69,10 @@ const Home = () => {
                     <SortButton /> {/*this is not working because all the posts have the exactly same createdAt date so i wont be able to test the logic*/}
                 </div>
                 {isLoading ? <Loading /> : <div className={styles.posts}>
-                        {filteredPosts.map(post => (
-                            <PostCard key={post.id} post={post} />
-                        ))}
-                    </div>
+                    {filteredPosts.map(post => (
+                        <PostCard key={post.id} post={post} />
+                    ))}
+                </div>
                 }
             </div>
         </>
