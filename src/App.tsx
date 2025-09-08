@@ -11,7 +11,7 @@ function App() {
       <BrowserRouter>
         <Routes>
           <Route path='/' element={<Home />} />
-          <Route path="/post/:id" element={<Post />} /> {/* rota dinâmica */}
+          <Route path="/post/:id" element={<Post />} /> 
         </Routes>
       </BrowserRouter>
     </>
