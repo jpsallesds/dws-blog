@@ -34,10 +34,10 @@ const PostPage = () => {
             <Header />
             <div className={styles.container}>
 
-                <div>
+                <div className={styles.button}>
                     <Button label="Back" variant="secondary" icon={<FaArrowLeft />} onClick={() => navigate(-1)} />
                 </div>
-                <h1 className='h1'>{post.title}</h1>
+                <h2 className={`${styles.postTitle} h2`}> {post.title}</h2>
                 <div className={styles.profileDetails}>
                     <img className={styles.profilePicture} src={post.author.profilePicture} alt={`Profile picture of ${post.author.name}`} />
                     <div className={styles.authorAndDate}>

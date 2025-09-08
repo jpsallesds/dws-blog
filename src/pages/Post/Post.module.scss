@@ -40,9 +40,14 @@
     &Title {
         font-size: 1.5rem;
     }
-}
+ }
 
 @media (min-width: 1024px) {
+
+    .button {
+        position: absolute;
+        left: 5rem;
+    }
 
     .container {
         padding: 1rem 30rem;
@@ -51,5 +56,11 @@
     .latestArticlesPosts {
         flex-direction: row;
         justify-content: center;
+    }
+
+    .postTitle {
+        font-size: 3.5rem;
+        line-height: 130%;
+        font-weight: 700;
     }
 }
