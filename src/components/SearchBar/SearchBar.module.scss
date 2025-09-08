@@ -1,0 +1,56 @@
+@use '../../styles/variables.scss' as *;
+
+.searchBar {
+    display: flex;
+    align-items: center;
+    position: relative;
+    
+    .input {
+        flex: 1;
+        padding: 1rem;
+        border: 1px solid $neutrals-extra-light;
+        border-radius: 2.625rem;
+        background-color: transparent;
+
+        &:focus {
+            border-color: $accent-medium;
+            outline: none;
+        }
+    }
+
+    .iconButton {
+        background: $primary-light;
+        color: $neutrals-lightest;
+        border: none;
+        cursor: pointer;
+        width: 2.5rem;
+        height: 2.5rem;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;    
+    }
+
+    &.expanded {           
+        width: 100%;
+        justify-content: center;             
+    }
+}
+
+@media (min-width: 1024px) {
+    .searchBar {
+        position: relative;
+        width: 18.75rem;
+
+        .input {
+            display: block;
+            width: 100%;
+        }
+
+        .iconButton {
+            display: block;
+            position: relative;
+        }
+    }
+  
+}
