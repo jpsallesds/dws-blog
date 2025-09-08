@@ -2,6 +2,11 @@
 
 This is a React project that requires **Node.js 24** to run.
 
+Notes:
+> It was not possible to implement sorting posts by date since all post dates are the same.
+
+>The search bar was not fully implemented, it only retrieves options from the API with data-list.
+
 ## Getting started
 
 Follow the steps below to set up and run the project locally.
