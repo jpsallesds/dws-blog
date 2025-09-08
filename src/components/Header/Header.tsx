@@ -1,14 +1,23 @@
-import styles from './Header.module.scss'
+import { SearchBar } from '@components';
+import styles from './Header.module.scss';
+import { useState } from 'react';
+import type { Category } from 'src/types/Category';
 
+interface HeaderProps {
+    categories?: Category[];
+}
 
-const Header = () => {
+const Header = ({categories}: HeaderProps) => {
+    const [searchOpen, setSearchOpen] = useState(false);
+
     return (
         <header className={styles.header}>
-           <div>
-            <img className={styles.headerLogo} src="Dentsu_logo.svg.png" alt="" />
-            </div> 
+            <div className={styles.headerContent}>
+                <img className={`${styles.headerLogo} ${searchOpen ? styles.headerLogoHidden : ''} `} src="/Dentsu_logo.svg.png" alt="Logo" />
+                <SearchBar options={categories} setSearchOpen={setSearchOpen} />
+            </div>
         </header>
     );
-}
+};
 
 export default Header;

@@ -3,10 +3,15 @@
 .header {
     padding: 1rem;
     border: 1px solid $neutrals-extra-light;
-    
+    height: 4.625rem;
+
     &Logo {
         width: 8rem;
         height: 2rem;
+    }
+    
+    &LogoHidden {
+        display: none;
     }
 
     &Content {
